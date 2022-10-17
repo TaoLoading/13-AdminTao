@@ -4,7 +4,7 @@
     <a-menu v-model:selectedKeys="topKeys" theme="dark" mode="horizontal" :style="{ lineHeight: '64px' }"
       @click="changeTopKeys($event.key)">
       <a-menu-item v-for="item in menuArr" :key="item.key">
-        {{item.value}}
+        {{ item.value }}
       </a-menu-item>
     </a-menu>
   </div>

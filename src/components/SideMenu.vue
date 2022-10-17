@@ -5,7 +5,7 @@
       @click="changeSideKeys($event.key)">
       <a-menu-item v-for="item in menuArr['nav1']" :key="item.key">
         <component :is="item.icon" />
-        <span>{{item.key}}</span>
+        <span>{{ item.key }}</span>
       </a-menu-item>
     </a-menu>
   </div>

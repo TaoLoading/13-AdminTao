@@ -21,8 +21,8 @@
         <a-layout-content style="margin: 0 16px">
           <!-- 面包屑 -->
           <a-breadcrumb style="margin: 16px 0">
-            <a-breadcrumb-item>{{topKey}}</a-breadcrumb-item>
-            <a-breadcrumb-item>{{sideKey}}</a-breadcrumb-item>
+            <a-breadcrumb-item>{{ topKey }}</a-breadcrumb-item>
+            <a-breadcrumb-item>{{ sideKey }}</a-breadcrumb-item>
           </a-breadcrumb>
           <div class="content">
             文本显示
