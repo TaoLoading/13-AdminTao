@@ -69,7 +69,7 @@ const collapsed = ref<boolean>(false)
 }
 
 .header {
-  background: #001529;
+  background: #fff;
   padding: 0;
   height: 64px;
 }

@@ -2,7 +2,7 @@
   <!-- 顶部 -->
   <div>
     <!-- 左侧菜单栏 -->
-    <a-menu v-model:selectedKeys="topKeys" theme="dark" mode="horizontal" :style="{ lineHeight: '64px' }"
+    <a-menu v-model:selectedKeys="topKeys" mode="horizontal" :style="{ lineHeight: '64px' }"
       @click="changeTopKeys($event.key)" style="float: left;">
       <a-menu-item v-for="item in menuArr" :key="item.key">
         {{ item.value }}
@@ -10,22 +10,20 @@
     </a-menu>
     <!-- 右侧操作栏 -->
     <div class="rightNav">
-      <!-- <user-outlined /> -->
-
-
-      <a-dropdown placement="bottom">
-        <user-outlined />
-        <template #overlay>
-          <a-menu>
-            <a-menu-item @click="logout">
-              <export-outlined />
-              退出
-            </a-menu-item>
-          </a-menu>
-        </template>
-      </a-dropdown>
-
-
+      <ul>
+        <li>
+          <a-tooltip @click="logout">
+            <template #title>退出</template>
+            <user-outlined class="border" />
+          </a-tooltip>
+        </li>
+        <li>
+          <a-tooltip>
+            <template #title>通知</template>
+            <bell-outlined class="border" />
+          </a-tooltip>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -34,7 +32,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
-import { UserOutlined, ExportOutlined } from '@ant-design/icons-vue'
+import { UserOutlined, ExportOutlined, BellOutlined } from '@ant-design/icons-vue'
 import { useMainStore } from '../store/index'
 
 // 菜单数据
@@ -74,8 +72,25 @@ const logout = () => {
 <style lang="scss" scoped>
 .rightNav {
   float: right;
-  padding-right: 80px;
-  color: #fff;
-  font-size: 20px;
+  padding-right: 50px;
+  height: 64px;
+  line-height: 64px;
+
+  ul>li {
+    float: right;
+    width: 26px;
+    height: 26px;
+    margin-right: 30px;
+    font-size: 14px;
+    color: #4E5969;
+    list-style: none;
+    text-align: center;
+
+    .border {
+      border: 1px solid #cfcfcf;
+      border-radius: 50%;
+      padding: 10px;
+    }
+  }
 }
 </style>

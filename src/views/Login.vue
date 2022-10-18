@@ -54,8 +54,8 @@ interface FormState {
 
 // 登录表单数据
 const formState = reactive<FormState>({
-  username: '',
-  password: '',
+  username: 'admin',
+  password: 'admin',
   remember: true
 })
 
