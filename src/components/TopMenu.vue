@@ -16,20 +16,20 @@ import { storeToRefs } from 'pinia'
 import { useMainStore } from '../store/index'
 
 // 菜单数据
-const menuArr = ref([
+const menuArr = [
   {
-    key: 'nav1',
-    value: 'nav 1'
+    key: 'search',
+    value: '查询'
   },
   {
-    key: 'nav2',
-    value: 'nav 2'
+    key: 'download',
+    value: '下载'
   },
   {
-    key: 'nav3',
-    value: 'nav 3'
+    key: 'upload',
+    value: '上传'
   }
-])
+]
 
 const store = useMainStore()
 const { topKey } = storeToRefs(store)

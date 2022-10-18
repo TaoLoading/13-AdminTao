@@ -3,9 +3,9 @@
   <div>
     <a-menu v-model:selectedKeys="sideKeys" theme="dark" mode="inline" style="margin-top: -3px;"
       @click="changeSideKeys($event.key)">
-      <a-menu-item v-for="item in menuArr['nav1']" :key="item.key">
+      <a-menu-item v-for="item in menuArr[topKey]" :key="item.key">
         <component :is="item.icon" />
-        <span>{{ item.key }}</span>
+        <span>{{ item.value }}</span>
       </a-menu-item>
     </a-menu>
   </div>
@@ -17,59 +17,59 @@ import { storeToRefs } from 'pinia'
 import { useMainStore } from '../store/index'
 
 // 菜单数据
-const menuArr = ref({
-  nav1: [
+const menuArr = {
+  search: [
     {
-      key: 'option1',
-      value: 'Option 1-1',
+      key: 'search-1',
+      value: '查询1',
       icon: 'PieChartOutlined'
     },
     {
-      key: 'option2',
-      value: 'Option 1-2',
+      key: 'search-2',
+      value: '查询2',
       icon: 'DesktopOutlined'
     },
     {
-      key: 'option3',
-      value: 'Option 1-3',
+      key: 'search-3',
+      value: '查询3',
       icon: 'UserOutlined'
     }
   ],
-  nav2: [
+  download: [
     {
-      key: 'option1',
-      value: 'Option 2-1',
+      key: 'download-1',
+      value: '下载1',
       icon: 'PieChartOutlined'
     },
     {
-      key: 'option2',
-      value: 'Option 2-2',
+      key: 'download-2',
+      value: '下载2',
       icon: 'DesktopOutlined'
     },
     {
-      key: 'option3',
-      value: 'Option 2-3',
+      key: 'download-3',
+      value: '下载3',
       icon: 'UserOutlined'
     }
   ],
-  nav3: [
+  upload: [
     {
-      key: 'option1',
-      value: 'Option 3-1',
+      key: 'upload-1',
+      value: '上传1',
       icon: 'PieChartOutlined'
     },
     {
-      key: 'option2',
-      value: 'Option 3-2',
+      key: 'upload-2',
+      value: '上传2',
       icon: 'DesktopOutlined'
     },
     {
-      key: 'option3',
-      value: 'Option 3-3',
+      key: 'upload-3',
+      value: '上传3',
       icon: 'UserOutlined'
     }
   ]
-})
+}
 
 const store = useMainStore()
 const { topKey, sideKey } = storeToRefs(store)
@@ -81,8 +81,8 @@ const changeSideKeys = (key: string) => {
 }
 // 当顶部导航栏发生变化时重置侧边栏
 watch(() => topKey.value, () => {
-  sideKey.value = 'option1'
-  sideKeys.value[0] = 'option1'
+  sideKey.value = menuArr[topKey.value][0].key
+  sideKeys.value[0] = menuArr[topKey.value][0].key
 }, { immediate: false, deep: false })
 </script>
 

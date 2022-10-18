@@ -4,9 +4,9 @@ export const useMainStore = defineStore('main', {
   state: () => {
     return {
       // 顶部导航栏选中菜单
-      topKey: 'nav2',
+      topKey: 'search',
       // 侧边导航栏选中菜单
-      sideKey: 'option2'
+      sideKey: 'search-1'
     }
   },
   getters: {
