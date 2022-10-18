@@ -14,7 +14,7 @@
       </a-layout-sider>
       <a-layout>
         <!-- 顶部导航栏 -->
-        <a-layout-header style="background: #fff; padding: 0">
+        <a-layout-header class="header">
           <TopMenu />
         </a-layout-header>
         <!-- 文本显示区 -->
@@ -66,6 +66,12 @@ const collapsed = ref<boolean>(false)
     white-space: nowrap;
     vertical-align: middle;
   }
+}
+
+.header {
+  background: #001529;
+  padding: 0;
+  height: 64px;
 }
 
 .content {
