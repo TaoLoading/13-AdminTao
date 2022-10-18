@@ -61,7 +61,6 @@ const { topKey, sideKey } = storeToRefs(store)
 
   .title {
     margin-left: 10px;
-    line-height: 34px;
     color: #fff;
     font-size: 18px;
     white-space: nowrap;
