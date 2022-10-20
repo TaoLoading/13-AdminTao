@@ -28,6 +28,18 @@
             </template>
           </a-dropdown>
         </li>
+        <li v-if="!isFull">
+          <a-tooltip>
+            <template #title>全屏</template>
+            <expand-outlined class="border" @click="changeFullScreen" />
+          </a-tooltip>
+        </li>
+        <li v-if="isFull">
+          <a-tooltip>
+            <template #title>退出全屏</template>
+            <compress-outlined class="border" @click="changeFullScreen" />
+          </a-tooltip>
+        </li>
         <li>
           <a-tooltip>
             <template #title>通知</template>
@@ -64,7 +76,15 @@ import { reactive, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { message } from 'ant-design-vue'
-import { UserOutlined, ExportOutlined, BellOutlined, LockOutlined } from '@ant-design/icons-vue'
+import {
+  UserOutlined,
+  ExportOutlined,
+  BellOutlined,
+  LockOutlined,
+  ExpandOutlined,
+  CompressOutlined
+} from '@ant-design/icons-vue'
+import screenfull from 'screenfull'
 import { useMainStore } from '../store/index'
 
 // 菜单数据
@@ -127,6 +147,14 @@ const logout = () => {
   localStorage.removeItem('userInfo')
   router.push(`/login`)
   location.reload()
+}
+
+// 是否全屏
+const isFull = ref(false)
+// 切换全屏
+const changeFullScreen = () => {
+  isFull.value = !isFull.value
+  screenfull.toggle()
 }
 </script>
 
