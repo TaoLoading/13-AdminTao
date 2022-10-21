@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
 import { storeToRefs } from 'pinia'
-import { useMainStore } from '../store/index'
+import { useMainStore } from '../../store/index'
 
 // 菜单数据
 const menuArr = {

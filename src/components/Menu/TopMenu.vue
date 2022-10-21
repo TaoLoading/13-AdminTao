@@ -85,7 +85,7 @@ import {
   CompressOutlined
 } from '@ant-design/icons-vue'
 import screenfull from 'screenfull'
-import { useMainStore } from '../store/index'
+import { useMainStore } from '../../store/index'
 
 // 菜单数据
 const menuArr = [
