@@ -1,10 +1,8 @@
-import { createRouter, createWebHistory } from 'vue-router'
+/**
+ * 路由配置
+ */
 
-interface FormState {
-  username: string
-  password: string
-  remember: boolean
-}
+import { createRouter, createWebHistory } from 'vue-router'
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -30,15 +28,4 @@ export const router = createRouter({
       ] */
     }
   ]
-})
-
-// 路由守卫
-router.beforeEach((to, from, next) => {
-  const saveInfo: FormState = JSON.parse(localStorage.getItem('userInfo') || '{}')
-  // 未登录时跳转到登录页
-  if (to.path !== '/login' && (saveInfo.username === undefined || saveInfo.username.trim() === '')) {
-    console.log('未登录', saveInfo.username)
-    return next('/login')
-  }
-  next()
 })

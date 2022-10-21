@@ -19,11 +19,6 @@
         </a-layout-header>
         <!-- 文本显示区 -->
         <a-layout-content style="margin: 0 16px">
-          <!-- 面包屑 -->
-          <!-- <a-breadcrumb style="margin: 16px 0">
-            <a-breadcrumb-item>{{ topKey }}</a-breadcrumb-item>
-            <a-breadcrumb-item>{{ sideKey }}</a-breadcrumb-item>
-          </a-breadcrumb> -->
           <div class="content">
             文本显示
           </div>
@@ -39,17 +34,11 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-// import { storeToRefs } from 'pinia'
-// import { useMainStore } from '../store/index'
-import TopMenu from '../components/TopMenu.vue'
-import SideMenu from '../components/SideMenu.vue'
+import TopMenu from '../components/Menu/TopMenu.vue'
+import SideMenu from '../components/Menu/SideMenu.vue'
 
 // 是否收起侧边栏
 const collapsed = ref<boolean>(false)
-
-// 顶部导航栏和侧边栏选中的数据由pinia控制
-// const store = useMainStore()
-// const { topKey, sideKey } = storeToRefs(store)
 </script>
 
 <style lang="scss">
