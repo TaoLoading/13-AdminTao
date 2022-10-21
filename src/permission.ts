@@ -1,5 +1,5 @@
 /**
- * 鉴权
+ * 路由守卫
  */
 
 import NProgress from 'nprogress'
@@ -29,7 +29,6 @@ router.beforeEach((to, from, next) => {
       /**
        * 此处鉴权
        */
-
       next()
       NProgress.done()
     }

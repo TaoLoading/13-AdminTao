@@ -6,7 +6,15 @@ export const useMainStore = defineStore('main', {
       // 顶部导航栏选中菜单
       topKey: 'search',
       // 侧边导航栏选中菜单
-      sideKey: 'search-1'
+      sideKey: 'search-1',
+      // 用户信息
+      userInfo: {
+        token: '',
+        name: '',
+        avatar: '',
+        roles: [],
+        info: {}
+      }
     }
   },
   getters: {
@@ -19,6 +27,8 @@ export const useMainStore = defineStore('main', {
     // 更改侧边导航栏
     changeSideKey(key: string) {
       return this.sideKey = key
-    }
+    },
+    // 获取用户权限
+    getUserRoles() { }
   }
 })
