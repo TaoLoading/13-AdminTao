@@ -14,12 +14,14 @@ export const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: () => import('@/views/Login.vue')
+      component: () => import('@/views/Login.vue'),
+      meta: { title: '登录' }
     },
     {
       path: '/platform',
       name: 'platform',
       component: () => import('@/layout/Layout.vue'),
+      meta: { title: '首页' },
       /* children: [
         {
           path: '',

@@ -146,7 +146,7 @@ const router = useRouter()
 const logout = () => {
   localStorage.removeItem('userInfo')
   router.push(`/login`)
-  location.reload()
+  // location.reload()
 }
 
 // 是否全屏

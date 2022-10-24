@@ -29,6 +29,8 @@ export const useMainStore = defineStore('main', {
       return this.sideKey = key
     },
     // 获取用户权限
-    getUserRoles() { }
+    getUserRoles() { },
+    // 清空用户数据
+    resetToken() { }
   }
 })

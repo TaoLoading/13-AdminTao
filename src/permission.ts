@@ -21,19 +21,36 @@ router.beforeEach((to, from, next) => {
   NProgress.start()
 
   const saveInfo: FormState = getUserInfo()
-  if (saveInfo.username) {
+  const token = saveInfo.username
+
+  if (token) {
     if (to.path === '/login') {
-      next('/login')
+      // token存在直接跳转到平台首页
+      next('/platform')
       NProgress.done()
     } else {
       /**
        * 此处鉴权
        */
+
       next()
       NProgress.done()
     }
   } else {
-    next('/login')
-    NProgress.done()
+    if (to.path === '/login') {
+      next()
+      NProgress.done()
+    } else {
+      // token不存在，重新登录
+      NProgress.done()
+      next('/login')
+    }
   }
+})
+
+router.afterEach((to, from, next) => {
+  // 改变页面title
+  document.title = to.meta.title as string
+  // 停止进度条
+  NProgress.done()
 })
